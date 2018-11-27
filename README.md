@@ -22,5 +22,11 @@
 | [Converse nonimplication](https://en.wikipedia.org/wiki/Converse_nonimplication)     | ```CNIMPL```      |↚|4|
 
 
+### Code generation
 
+You can generate parser with ```mvn clean compile``` command
+
+- use ```-Pjava``` maven profile (uses by default) for java
+- use ``-Pjs`` maven profile for
+javascript
 
