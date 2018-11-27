@@ -1,4 +1,5 @@
 # boolean-expression-evaluator
+[![Build Status](https://travis-ci.com/rifttech/boolean-expression-evaluator.svg?branch=master)](https://travis-ci.com/rifttech/boolean-expression-evaluator)
 
 ## Unrary Operators
 | Operation name | Operator | Notation |Precedence
