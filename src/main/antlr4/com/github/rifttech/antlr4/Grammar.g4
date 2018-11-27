@@ -1,9 +1,5 @@
 grammar Grammar;
 
-@header {
-    package com.github.rifttech.antlr4;
-}
-
 parse
  : expression EOF
  ;
@@ -11,12 +7,23 @@ parse
 expression
  : LPAREN expression RPAREN                                                         #parenExpression
  | NOT expression                                                                   #notExpression
- | left=expression op1=(AND | NAND) right=expression                                #binaryExpression
- | left=expression op2=(OR | NOR | XOR) right=expression                            #binaryExpression
- | left=expression op3= (XNOR | IMPL | CIMPL | NIMPL | CNIMPL ) right=expression    #binaryExpression
+ | left=expression op1=binary_set_1 right=expression                                #binaryExpression
+ | left=expression op2=binary_set_2 right=expression                            #binaryExpression
+ | left=expression op3=binary_set_3 right=expression    #binaryExpression
  | bool                                                                             #boolExpression
  | IDENTIFIER                                                                       #identifierExpression
  ;
+
+binary_set_1
+    : AND | NAND
+    ;
+
+binary_set_2
+    : OR | NOR | XOR
+    ;
+binary_set_3
+    : XNOR | IMPL | CIMPL | NIMPL | CNIMPL
+    ;
 bool
  : TRUE | FALSE
  ;

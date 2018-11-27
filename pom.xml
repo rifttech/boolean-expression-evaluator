@@ -50,7 +50,6 @@
                 <artifactId>antlr4-maven-plugin</artifactId>
                 <version>4.7</version>
                 <configuration>
-                    <outputDirectory>${project.basedir}/src/main/java/com/github/rifttech/antlr4</outputDirectory>
                     <visitor>true</visitor>
                     <outputEncoding>UTF-8</outputEncoding>
                     <inputEncoding>UTF-8</inputEncoding>
