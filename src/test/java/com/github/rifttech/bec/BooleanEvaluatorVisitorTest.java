@@ -1,10 +1,12 @@
 package com.github.rifttech.bec;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 import static org.junit.Assert.*;
 
@@ -14,23 +16,27 @@ public class BooleanEvaluatorVisitorTest {
     @Test
     public void testBinaryOpAnd() {
         final String expression = "A AND B";
-        Map<String, Boolean> vars = new HashMap<>();
+        PackageBuilder
+                .setup()
+                .of(expression, true, mapOf(True("A"), True("B")))
+                .of(expression, false, mapOf(True("A"), False("B")))
+                .of(expression, false, mapOf(False("A"), True("B")))
+                .of(expression, false, mapOf(False("A"), False("B")))
+                .get()
+                .forEach(s -> assertEquals(s.isExpectedResult(), evaluate(s.getExpr(),s.getVars())));
+    }
 
-        vars.put("A", true);
-        vars.put("B", true);
-        assertTrue(evaluate(expression, vars));
-
-        vars.put("A", true);
-        vars.put("B", false);
-        assertFalse(evaluate(expression, vars));
-
-        vars.put("A", false);
-        vars.put("B", true);
-        assertFalse(evaluate(expression, vars));
-
-        vars.put("A", false);
-        vars.put("B", false);
-        assertFalse(evaluate(expression, vars));
+    @Test
+    public void testBinaryOpOr() {
+        final String expression = "A OR B";
+        PackageBuilder
+                .setup()
+                .of(expression, true, mapOf(True("A"), True("B")))
+                .of(expression, true, mapOf(True("A"), False("B")))
+                .of(expression, true, mapOf(False("A"), True("B")))
+                .of(expression, false, mapOf(False("A"), False("B")))
+                .get()
+                .forEach(s -> assertEquals(s.isExpectedResult(), evaluate(s.getExpr(),s.getVars())));
     }
 
     @Test
@@ -70,19 +76,50 @@ public class BooleanEvaluatorVisitorTest {
     private static class ExpressionPackage {
         private final String expr;
         private final boolean expectedResult;
+        private final Map<String,Boolean> vars;
 
     }
+
     private static class PackageBuilder {
         private List<ExpressionPackage> list = new ArrayList<>();
         static PackageBuilder setup(){
             return new PackageBuilder();
         }
         PackageBuilder of(String expr, boolean expected){
-            this.list.add(new ExpressionPackage(expr, expected));
+            this.list.add(new ExpressionPackage(expr, expected, Collections.emptyMap()));
+            return this;
+        }
+        PackageBuilder of(String expr, boolean expected, Map<String,Boolean> map){
+            this.list.add(new ExpressionPackage(expr, expected, map));
             return this;
         }
         List<ExpressionPackage> get(){
             return this.list;
         }
     }
+
+    @Data
+    @AllArgsConstructor
+    private static class Variable{
+        private String name;
+        private Boolean value;
+    }
+
+    private Variable var(String name, Boolean value){
+        return new Variable(name, value);
+    }
+
+    private Variable True(String name){
+        return new Variable(name, true);
+    }
+
+    private Variable False(String name){
+        return new Variable(name, false);
+    }
+    
+    private static Map<String, Boolean> mapOf(Variable ... vars){
+        if (vars == null) throw new IllegalArgumentException();
+        return Arrays.stream(vars).collect(Collectors.toMap(Variable::getName, Variable::getValue));
+    }
+
 }
