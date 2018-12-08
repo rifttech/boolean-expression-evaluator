@@ -4,6 +4,7 @@ import com.github.rifttech.antlr4.GrammarBaseVisitor;
 import com.github.rifttech.antlr4.GrammarParser;
 
 import java.util.Map;
+import java.util.Objects;
 
 public class BooleanEvaluatorVisitor extends GrammarBaseVisitor<Boolean> {
     private final Map<String, Boolean> vars;
@@ -14,9 +15,9 @@ public class BooleanEvaluatorVisitor extends GrammarBaseVisitor<Boolean> {
 
     @Override
     public Boolean visitBinaryExpression(GrammarParser.BinaryExpressionContext ctx) {
-        if(ctx.op1.AND() != null){
+        if(Objects.nonNull(ctx.op1) && ctx.op1.AND() != null){
             return asBoolean(ctx.left) && asBoolean(ctx.right);
-        } else if(ctx.op1.NAND() != null){
+        } else if(Objects.nonNull(ctx.op1) && ctx.op1.NAND() != null){
            return !(asBoolean(ctx.left) || asBoolean(ctx.right));
         } else if (ctx.op2.OR() != null){
             return asBoolean(ctx.left) || asBoolean(ctx.right);
