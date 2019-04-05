@@ -56,6 +56,28 @@ public class BooleanEvaluatorVisitorTest {
         assertExpressions(tests);
     }
 
+    @Test
+    public void textXOR() {
+        PackageBuilder.setup()
+                .of("A XOR B", false, mapOf(True("A"), True("B")))
+                .of("A XOR B", true, mapOf(True("A"), False("B")))
+                .of("A XOR B", true, mapOf(False("A"), True("B")))
+                .of("A XOR B", false, mapOf(False("A"), False("B")))
+                .get()
+                .forEach(s -> assertEquals(s.isExpectedResult(), evaluate(s.getExpr(),s.getVars())));
+    }
+
+    @Test
+    public void textNOR() {
+        PackageBuilder.setup()
+                .of("A NOR B", false, mapOf(True("A"), True("B")))
+                .of("A NOR B", false, mapOf(True("A"), False("B")))
+                .of("A NOR B", false, mapOf(False("A"), True("B")))
+                .of("A NOR B", true, mapOf(False("A"), False("B")))
+                .get()
+                .forEach(s -> assertEquals(s.isExpectedResult(), evaluate(s.getExpr(),s.getVars())));
+    }
+
     private static void assertExpressions(List<ExpressionPackage> tests) {
         for (int i = 0; i < tests.size(); i++) {
             log.debug("testing expression {}", i);

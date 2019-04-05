@@ -28,7 +28,7 @@ public class BooleanEvaluatorVisitor extends GrammarBaseVisitor<Boolean> {
         } else if (ctx.op2.NOR() != null){
             boolean p = asBoolean(ctx.left);
             boolean q = asBoolean(ctx.right);
-            return !(p && q);
+            return !(p || q);
         }else {
             throw new UnsupportedOperationException(ctx.getText());
         }
