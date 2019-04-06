@@ -8,7 +8,7 @@ import org.junit.Test;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 @Slf4j
 public class BooleanEvaluatorVisitorTest {
@@ -70,10 +70,77 @@ public class BooleanEvaluatorVisitorTest {
     @Test
     public void textNOR() {
         PackageBuilder.setup()
-                .of("A NOR B", false, mapOf(True("A"), True("B")))
-                .of("A NOR B", false, mapOf(True("A"), False("B")))
-                .of("A NOR B", false, mapOf(False("A"), True("B")))
-                .of("A NOR B", true, mapOf(False("A"), False("B")))
+                .of("A NOR B", false,   mapOf(True("A"), True("B")))
+                .of("A NOR B", false,   mapOf(True("A"), False("B")))
+                .of("A NOR B", false,   mapOf(False("A"), True("B")))
+                .of("A NOR B", true,    mapOf(False("A"), False("B")))
+                .get()
+                .forEach(s -> assertEquals(s.isExpectedResult(), evaluate(s.getExpr(),s.getVars())));
+    }
+
+    @Test
+    public void textNAND() {
+        PackageBuilder.setup()
+                .of("A NAND B", false,  mapOf(True("A"), True("B")))
+                .of("A NAND B", true,   mapOf(True("A"), False("B")))
+                .of("A NAND B", true,   mapOf(False("A"), True("B")))
+                .of("A NAND B", true,   mapOf(False("A"), False("B")))
+                .get()
+                .forEach(s -> assertEquals(s.isExpectedResult(), evaluate(s.getExpr(),s.getVars())));
+    }
+
+    @Test
+    public void textXNOR() {
+        PackageBuilder.setup()
+                .of("A XNOR B", true,   mapOf(True("A"), True("B")))
+                .of("A XNOR B", false,  mapOf(True("A"), False("B")))
+                .of("A XNOR B", false,  mapOf(False("A"), True("B")))
+                .of("A XNOR B", true,   mapOf(False("A"), False("B")))
+                .get()
+                .forEach(s -> assertEquals(s.isExpectedResult(), evaluate(s.getExpr(),s.getVars())));
+    }
+
+    @Test
+    public void textIMPL() {
+        PackageBuilder.setup()
+                .of("A IMPL B", true,   mapOf(True("A"), True("B")))
+                .of("A IMPL B", false,  mapOf(True("A"), False("B")))
+                .of("A IMPL B", true,   mapOf(False("A"), True("B")))
+                .of("A IMPL B", true,   mapOf(False("A"), False("B")))
+                .get()
+                .forEach(s -> assertEquals(s.isExpectedResult(), evaluate(s.getExpr(),s.getVars())));
+    }
+
+    @Test
+    public void textCIMPL() {
+        PackageBuilder.setup()
+                .of("A CIMPL B", true,   mapOf(True("A"), True("B")))
+                .of("A CIMPL B", true,  mapOf(True("A"), False("B")))
+                .of("A CIMPL B", false,   mapOf(False("A"), True("B")))
+                .of("A CIMPL B", true,   mapOf(False("A"), False("B")))
+                .get()
+                .forEach(s -> assertEquals(s.isExpectedResult(), evaluate(s.getExpr(),s.getVars())));
+    }
+
+
+    @Test
+    public void textNIMPL() {
+        PackageBuilder.setup()
+                .of("A NIMPL B", false,   mapOf(True("A"), True("B")))
+                .of("A NIMPL B", true,    mapOf(True("A"), False("B")))
+                .of("A NIMPL B", false,   mapOf(False("A"), True("B")))
+                .of("A NIMPL B", false,   mapOf(False("A"), False("B")))
+                .get()
+                .forEach(s -> assertEquals(s.isExpectedResult(), evaluate(s.getExpr(),s.getVars())));
+    }
+
+    @Test
+    public void textCNIMPL() {
+        PackageBuilder.setup()
+                .of("A CNIMPL B", true,   mapOf(True("A"), True("B")))
+                .of("A CNIMPL B", true,  mapOf(True("A"), False("B")))
+                .of("A CNIMPL B", false,   mapOf(False("A"), True("B")))
+                .of("A CNIMPL B", true,   mapOf(False("A"), False("B")))
                 .get()
                 .forEach(s -> assertEquals(s.isExpectedResult(), evaluate(s.getExpr(),s.getVars())));
     }
@@ -132,11 +199,11 @@ public class BooleanEvaluatorVisitorTest {
     }
 
     private Variable True(String name){
-        return new Variable(name, true);
+        return var(name, true);
     }
 
     private Variable False(String name){
-        return new Variable(name, false);
+        return var(name, false);
     }
     
     private static Map<String, Boolean> mapOf(Variable ... vars){

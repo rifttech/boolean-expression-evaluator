@@ -5,13 +5,13 @@ parse
  ;
 
 expression
- : LPAREN expression RPAREN                                                         #parenExpression
- | NOT expression                                                                   #notExpression
- | left=expression op1=binary_set_1 right=expression                                #binaryExpression
- | left=expression op2=binary_set_2 right=expression                            #binaryExpression
+ : LPAREN expression RPAREN                             #parenExpression
+ | NOT expression                                       #notExpression
+ | left=expression op1=binary_set_1 right=expression    #binaryExpression
+ | left=expression op2=binary_set_2 right=expression    #binaryExpression
  | left=expression op3=binary_set_3 right=expression    #binaryExpression
- | bool                                                                             #boolExpression
- | IDENTIFIER                                                                       #identifierExpression
+ | bool                                                 #boolExpression
+ | IDENTIFIER                                           #identifierExpression
  ;
 
 binary_set_1
@@ -41,7 +41,7 @@ XOR        : 'XOR';
 IMPL       : 'IMPL';
 CIMPL      : 'CIMPL';
 CNIMPL     : 'CNIMPL';
-NIMPL      : 'NIPL';
+NIMPL      : 'NIMPL';
 LPAREN     : '(' ;
 RPAREN     : ')' ;
 IDENTIFIER : [A-Z];
