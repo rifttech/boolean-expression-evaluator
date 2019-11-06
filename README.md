@@ -19,14 +19,14 @@
 | [Material implication](https://en.wikipedia.org/wiki/Material_conditional)     | ```IMPL```      |<img src="https://latex.codecogs.com/svg.latex?\Large&space;\rightarrow" title="\rightarrow" />|4|
 | [Converse implication](https://en.wikipedia.org/wiki/Converse_implication)     | ```CIMPL```      |<img src="https://latex.codecogs.com/svg.latex?\Large&space;\leftarrow" title="\leftarrow" />|4|
 | [Material nonimplication](https://en.wikipedia.org/wiki/Material_nonimplication)     | ```NIMPL```      |<img src="https://latex.codecogs.com/svg.latex?\Large&space;\nrightarrow" title="\nrightarrow" />|4|
-| [Converse nonimplication](https://en.wikipedia.org/wiki/Converse_nonimplication)     | ```CNIMPL```      |<img src="https://latex.codecogs.com/svg.latex?\Large&space;\nleftarrow " title="\nleftarrow" />|4|
+| [Converse nonimplication](https://en.wikipedia.org/wiki/Converse_nonimplication)     | ```CNIMPL```      |<img src="https://latex.codecogs.com/svg.latex?\Large&space;\nleftarrow" title="\nleftarrow" />|4|
 
 
 ## Truth Tables
 
 ### Logical Conjunction
 
-| <img src="https://latex.codecogs.com/svg.latex?\Large&space;P" title="P" /> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q" title="Q" /> |<img src="https://latex.codecogs.com/svg.latex?\Large&space;P\land Q" title="\land" /> |
+| <img src="https://latex.codecogs.com/svg.latex?\Large&space;P" title="P" /> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q" title="Q" /> |<img src="https://latex.codecogs.com/svg.latex?\Large&space;P \land%20Q" title="\land" /> |
 |------|------|-----|
 | TRUE | TRUE | TRUE
 | TRUE | FALSE | FALSE
@@ -35,7 +35,7 @@
 
 ### Logical Disjunction
 
-| <img src="https://latex.codecogs.com/svg.latex?\Large&space;P" title="P" />  | <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q" title="Q" /> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;P\lor Q" title="\land" /> |
+| <img src="https://latex.codecogs.com/svg.latex?\Large&space;P" title="P" />  | <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q" title="Q" /> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;P\lor%20Q" title="\land" /> |
 |------|------|-----|
 | TRUE | TRUE | TRUE
 | TRUE | FALSE | TRUE
@@ -44,7 +44,7 @@
 
 ### Logical NOR
 
-| <img src="https://latex.codecogs.com/svg.latex?\Large&space;P" title="P" />  | <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q" title="Q" /> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;P\downarrow Q" title="\downarrow" /> |
+| <img src="https://latex.codecogs.com/svg.latex?\Large&space;P" title="P" />  | <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q" title="Q" /> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;P\downarrow%20Q" title="\downarrow" /> |
 |------|------|-----|
 | TRUE | TRUE | FALSE
 | TRUE | FALSE | FALSE
@@ -54,7 +54,7 @@
 
 ### Logical NAND
 
-| <img src="https://latex.codecogs.com/svg.latex?\Large&space;P" title="P" />  | <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q" title="Q" /> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;P\uparrow Q" title="\uparrow" /> |
+| <img src="https://latex.codecogs.com/svg.latex?\Large&space;P" title="P" />  | <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q" title="Q" /> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;P\uparrow%20Q" title="\uparrow" /> |
 |------|------|-----|
 | TRUE | TRUE | FALSE
 | TRUE | FALSE | TRUE
@@ -64,7 +64,7 @@
 
 ### Logical XOR
 
-| <img src="https://latex.codecogs.com/svg.latex?\Large&space;P" title="P" />  | <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q" title="Q" /> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;P\oplus Q" title="\oplus" /> |
+| <img src="https://latex.codecogs.com/svg.latex?\Large&space;P" title="P" />  | <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q" title="Q" /> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;P\oplus%20Q" title="\oplus" /> |
 |------|------|-----|
 | TRUE | TRUE | FALSE
 | TRUE | FALSE | TRUE
@@ -75,7 +75,7 @@
 
 ### Logical XNOR
 
-| <img src="https://latex.codecogs.com/svg.latex?\Large&space;P" title="P" />  | <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q" title="Q" /> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;P\leftrightarrow Q" title="\leftrightarrow" /> |
+| <img src="https://latex.codecogs.com/svg.latex?\Large&space;P" title="P" />  | <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q" title="Q" /> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;P\leftrightarrow%20Q" title="\leftrightarrow" /> |
 |------|------|-----|
 | TRUE | TRUE | TRUE
 | TRUE | FALSE | FALSE
@@ -85,7 +85,7 @@
 
 ### Material Implication
 
-| <img src="https://latex.codecogs.com/svg.latex?\Large&space;P" title="P" />  | <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q" title="Q" /> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;P\rightarrow Q" title="\leftarrow" />|
+| <img src="https://latex.codecogs.com/svg.latex?\Large&space;P" title="P" />  | <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q" title="Q" /> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;P\rightarrow%20Q" title="\leftarrow" />|
 |------|------|-----|
 | TRUE | TRUE | TRUE
 | TRUE | FALSE | FALSE
@@ -95,7 +95,7 @@
 
 ### Converse Implication
 
-| <img src="https://latex.codecogs.com/svg.latex?\Large&space;P" title="P" />  | <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q" title="Q" /> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;P\leftarrow Q" title="\leftarrow" /> |
+| <img src="https://latex.codecogs.com/svg.latex?\Large&space;P" title="P" />  | <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q" title="Q" /> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;P\leftarrow%20Q" title="\leftarrow" /> |
 |------|------|-----|
 | TRUE | TRUE | TRUE
 | TRUE | FALSE | TRUE
@@ -106,7 +106,7 @@
 
 ### Material Nonimplication (Abjunction)
 
-| <img src="https://latex.codecogs.com/svg.latex?\Large&space;P" title="P" />  | <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q" title="Q" /> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;P\nrightarrow Q" title="\nrightarrow" /> |
+| <img src="https://latex.codecogs.com/svg.latex?\Large&space;P" title="P" />  | <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q" title="Q" /> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;P\nrightarrow%20Q" title="\nrightarrow" /> |
 |------|------|-----|
 | TRUE | TRUE | FALSE
 | TRUE | FALSE | TRUE
@@ -116,7 +116,7 @@
 
 ### Converse Nonimplication
 
-| <img src="https://latex.codecogs.com/svg.latex?\Large&space;P" title="P" />  | <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q" title="Q" /> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;P\nleftarrow Q" title="\nleftarrow" /> |
+| <img src="https://latex.codecogs.com/svg.latex?\Large&space;P" title="P" />  | <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q" title="Q" /> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;P\nleftarrow%20Q" title="\nleftarrow" /> |
 |------|------|-----|
 | TRUE | TRUE | FALSE
 | TRUE | FALSE | TRUE
