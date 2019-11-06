@@ -1,4 +1,4 @@
-# New Document# boolean-expression-evaluator
+# boolean-expression-evaluator
 [![Build Status](https://travis-ci.com/rifttech/boolean-expression-evaluator.svg?branch=master)](https://travis-ci.com/rifttech/boolean-expression-evaluator)
 
 ## Unrary Operators
