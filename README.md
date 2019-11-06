@@ -26,7 +26,7 @@
 
 ### Logical Conjunction
 
-| <img src="https://latex.codecogs.com/svg.latex?\Large&space;P" title="P" /> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q" title="Q" /> |<img src="https://latex.codecogs.com/svg.latex?\Large&space;P \land%20Q" title="\land" /> |
+| <img src="https://latex.codecogs.com/svg.latex?\Large&space;P" title="P" /> | <img src="https://latex.codecogs.com/svg.latex?\Large&space;Q" title="Q" /> |<img src="https://latex.codecogs.com/svg.latex?\Large&space;P\land%20Q" title="\land" /> |
 |------|------|-----|
 | TRUE | TRUE | TRUE
 | TRUE | FALSE | FALSE
